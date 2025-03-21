@@ -1,0 +1,65 @@
+[
+    {
+      "command": "create",
+      "id": 1000,
+      "username": "tester1000",
+      "email": "test1000@test.com",
+      "password": "password1000"
+    },
+    {
+      "command": "create",
+      "id": 1001,
+      "username": "tester1001",
+      "email": "test1001@test.com",
+      "password": "password1001"
+    },
+    {
+        "command": "create",
+        "id": 1002,
+        "username": "tester1002",
+        "email": "test1002@test.com",
+        "password": "password1002"
+    }, {
+        "command": "create",
+        "id": 1003,
+        "username": "tester1003",
+        "email": "test1003@test.com",
+        "password": "password1003"
+    }, {
+        "command": "create",
+        "id": 1004,
+        "username": "tester1004",
+        "email": "test1004@test.com",
+        "password": "password1004"
+    }, {
+        "command": "create",
+        "id": 1005,
+        "username": "tester1005",
+        "email": "test1005@test.com",
+        "password": "password1005"
+    }, {
+        "command": "create",
+        "id": 1006,
+        "username": "tester1006",
+        "email": "test1006@test.com",
+        "password": "password1006"
+    }, {
+        "command": "create",
+        "id": 1007,
+        "username": "tester1007",
+        "email": "test1007@test.com",
+        "password": "password1007"
+    },  {
+        "command": "create",
+        "id": 1008,
+        "username": "tester1008",
+        "email": "test1008@test.com",
+        "password": "password1008"
+    }, {
+        "command": "create",
+        "id": 1009,
+        "username": "tester1009",
+        "email": "test1009@test.com",
+        "password": "password1009"
+    }
+]

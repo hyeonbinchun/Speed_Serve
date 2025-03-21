@@ -1,0 +1,121 @@
+version: '3'
+
+services:
+  # NGINX Load Balancer
+  nginx:
+    build:
+      context: ./
+      dockerfile: nginx.Dockerfile
+    ports:
+      - "8000:80"  # Maps port 8000 on localhost to NGINX port 80
+    networks:
+      - service-network
+    depends_on:
+      - order-service-1
+      - order-service-2
+      - order-service-3
+
+  redis:
+    image: redis
+    container_name: redis-container
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - service-network
+
+  postgres:
+    image: postgres
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - service-network  # Make sure this is specified
+
+  # Multiple OrderService instances
+  order-service-1:
+    build:
+      context: ./
+      dockerfile: ./src/OrderService/Dockerfile
+    volumes:
+      - ./config.json:/app/config.json
+    ports:
+      - "8080:8080"
+    networks:
+      - service-network
+    depends_on:
+      - user-service
+      - product-service
+      - postgres
+      - redis
+
+  order-service-2:
+    build:
+      context: ./
+      dockerfile: ./src/OrderService/Dockerfile
+    volumes:
+      - ./config.json:/app/config.json
+    networks:
+      - service-network
+    depends_on:
+      - user-service
+      - product-service
+      - postgres
+      - redis
+
+  order-service-3:
+    build:
+      context: ./
+      dockerfile: ./src/OrderService/Dockerfile
+    volumes:
+      - ./config.json:/app/config.json
+    networks:
+      - service-network
+    depends_on:
+      - user-service
+      - product-service
+      - postgres
+      - redis
+
+  # User Service
+  user-service:
+    build:
+      context: ./
+      dockerfile: ./src/UserService/Dockerfile
+    volumes:
+      - ./config.json:/app/config.json
+    ports:
+      - "8081:8081"
+    networks:
+      - service-network
+    depends_on:
+      - postgres  # Add this line to ensure postgres starts first
+
+  # Product Service
+  product-service:
+    build:
+      context: ./
+      dockerfile: ./src/ProductService/Dockerfile
+    volumes:
+      - ./config.json:/app/config.json
+    ports:
+      - "8082:8082"
+    networks:
+      - service-network
+    depends_on:
+      - postgres
+
+volumes:
+  pgdata:
+  redis-data: 
+
+networks:
+  service-network:
+    driver: bridge

@@ -1,0 +1,23 @@
+{
+  "OrderService": {
+    "port": 8080,
+    "ip": "order-service-1"
+  },
+  "UserService": {
+    "port": 8081,
+    "ip": "user-service"
+  },
+  "ProductService": {
+    "port": 8082,
+    "ip": "product-service"
+  },
+  "Database": {
+    "url": "jdbc:postgresql://postgres-container:5432/mydatabase",
+    "user": "myuser",
+    "password": "mypassword"
+  },
+  "Redis": {
+    "host": "redis",
+    "port": 6379
+  }
+}

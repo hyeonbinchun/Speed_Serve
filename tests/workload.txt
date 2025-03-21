@@ -1,0 +1,28 @@
+USER create 1000 tester1000 test1000@test.com password1000
+USER create 1001 tester1001 test1001@test.com password1001
+USER create 1002 tester1002 test1002@test.com password1002
+USER create 1003 tester1003 test1003@test.com password1003
+USER create 1004 tester1004 test1004@test.com password1004
+USER create 1005 tester1005 test1005@test.com password1005
+USER create 1006 tester1006 test1006@test.com password1006
+USER create 1007 tester1007 test1007@test.com password1007
+USER create 1008 tester1008 test1008@test.com password1008
+USER create 1009 tester1009 test1009@test.com password1009
+USER create 1010 test1010@test.com password1010
+USER create 1011 tester1011 test1011@test.com
+USER create 1012 tester1012 1012 password1012
+USER create 1000 tester1000-duplicate test1000-duplicate@test.com password1000-duplicate
+USER update 1001 username:tester1001-update email:testupdate1001@test.com password:password1001-update
+USER update 1002
+USER update username:tester-update email:testupdate@test.com
+USER update 1003 email:1003
+USER update 1004 username:tester1004-update email: "" password: ""
+USER update 10001 username:tester10001-update email:testupdate10001@test.com password:password10001
+USER delete 1005 tester1005 test1005@test.com password1005
+USER delete 1006 tester1006 password1006
+USER delete 10002 tester10002 test10002@test.com password10002
+USER delete 1007 tester1007 test1007@test.com WrongPassword
+USER get 1000
+USER get 1001
+USER get abcd
+USER get 10000
